@@ -1,31 +1,21 @@
 <script>
-	export let name;
-	let beltColor='black'
-	let firstname=''
-	let lastname=''
-	const handleclick=()=>{
-		beltColor='yellow'
-
-
-	};
-	const handleinput=(e)=>{
-		beltColor=e.target.value;
-
-	};
-	$:fullname=`${firstname} ${lastname}`;
-	// $:{
-	// 	console.log(fullname)
-	// }
+	let people=[
+		{name:'sahil',code:100},
+		{name:'tushar',code:101},
+		{name:'riddhi',code:102}
+	];
+	
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>{fullname}</p>
-	<!-- <button on:click={handleclick}>Update belt color</button> -->
-	<!-- <input type="text" on:input={handleinput} value={beltColor}> -->
-	<input type="text" bind:value={beltColor}>
-	<input type="text" bind:value={firstname}>
-	<input type="text" bind:value={lastname}>
+	<div>
+		{#each people as person}
+			<h4>{person.name} {person.code}</h4>
+			
+			
+		
+		{/each}
+	</div>
 </main>
 
 
