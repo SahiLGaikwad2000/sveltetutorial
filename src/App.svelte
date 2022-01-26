@@ -13,9 +13,7 @@
 
 	};
 	$:fullname=`${firstname} ${lastname}`;
-	$:{
-		console.log(fullname)
-	}
+	
 </script>
 
 <main>
