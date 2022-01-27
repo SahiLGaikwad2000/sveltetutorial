@@ -10,7 +10,8 @@
 
 	}
 </script>
-<Modal />
+<!-- here message is string prop . props can be of various types like object,int -->
+<Modal message ="dynamic value"/> 
 <main>
 	<div>
 		{#each people as person (person.id)}
