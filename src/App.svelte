@@ -13,7 +13,10 @@
 <main>
 	<div>
 		{#each people as person (person.id)}
-		<div>	
+		<div>
+			{#if person.code===102}	
+			<p><strong>James Bond</strong></p>
+			{/if}
 		<h4>{person.name} {person.code}</h4>
 		<button on:click={()=>{handleClick(person.id)}}>Delete</button> 
 		<!-- used inline function to pass reference of function handleclick so that it gets called only when button is clicked -->
