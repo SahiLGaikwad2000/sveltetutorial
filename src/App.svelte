@@ -9,9 +9,14 @@
 		people=people.filter((person)=>person.id!=id)
 
 	}
+	let show=false;
+	const handleshow=()=>{
+		show=!show;
+	}
 </script>
 <!-- here message is string prop . props can be of various types like object,int -->
-<Modal message ="dynamic value"/> 
+
+<Modal message ="dynamic value" {show} on:click={handleshow}/> 
 <main>
 	<div>
 		{#each people as person (person.id)}
@@ -22,6 +27,9 @@
 		<h4>{person.name} {person.code}</h4>
 		<button on:click={()=>{handleClick(person.id)}}>Delete</button> 
 		<!-- used inline function to pass reference of function handleclick so that it gets called only when button is clicked -->
+	</div>
+	<div>
+		<button on:click={handleshow}>Show modal</button>
 	</div>
 		{:else}
 		<h4>There are no people to show.</h4>	
