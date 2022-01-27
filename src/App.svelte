@@ -1,18 +1,25 @@
 <script>
 	let people=[
-		{name:'sahil',code:100},
-		{name:'tushar',code:101},
-		{name:'riddhi',code:102}
+		{name:'sahil',code:100,id:1},
+		{name:'tushar',code:101,id:2},
+		{name:'riddhi',code:102,id:3}
 	];
-	
+	const handleClick=(id)=>{
+		people=people.filter((person)=>person.id!=id)
+
+	}
 </script>
 
 <main>
 	<div>
-		{#each people as person}
-			<h4>{person.name} {person.code}</h4>
-			
-			
+		{#each people as person (person.id)}
+		<div>	
+		<h4>{person.name} {person.code}</h4>
+		<button on:click={()=>{handleClick(person.id)}}>Delete</button> 
+		<!-- used inline function to pass reference of function handleclick so that it gets called only when button is clicked -->
+	</div>
+		{:else}
+		<h4>There are no people to show.</h4>	
 		
 		{/each}
 	</div>
