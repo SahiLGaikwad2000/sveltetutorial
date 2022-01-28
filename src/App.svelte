@@ -29,7 +29,8 @@
 		<!-- used inline function to pass reference of function handleclick so that it gets called only when button is clicked -->
 	</div>
 	<div>
-		<button on:click={handleshow}>Show modal</button>
+		<!-- |once is event modifier -->
+		<button on:click|once={handleshow}>Show modal</button>
 	</div>
 		{:else}
 		<h4>There are no people to show.</h4>	

@@ -7,7 +7,8 @@ export let message='Sign up for offer';
 <div>
 <div>
 <!-- only defining onclick will forward event to parent component where it is called example inside </Modal> -->
-<p on:click>{message}</p>
+<!-- | self is event modifier -->
+<p on:click|self >{message}</p>
 </div>
 </div>
 {/if}
