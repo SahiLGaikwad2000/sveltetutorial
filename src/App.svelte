@@ -15,8 +15,20 @@
 	}
 </script>
 <!-- here message is string prop . props can be of various types like object,int -->
+<!-- You can add more contents in modal component in opening and closing tag -->
+<!-- slots are used for this. Named slots are used for reference example div tag has named slot -->
+<Modal {show} on:click={handleshow}>
+<div>
+	<form>
+	<input type="text" placeholder='name'>
+</form>
+</div>
+<div slot='firstsl'>
+	<p>New Slot</p>
+</div>
 
-<Modal message ="dynamic value" {show} on:click={handleshow}/> 
+
+</Modal> 
 <main>
 	<div>
 		{#each people as person (person.id)}
