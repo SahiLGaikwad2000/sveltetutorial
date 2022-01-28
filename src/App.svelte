@@ -1,5 +1,6 @@
 <script>
 	import Modal from './Modal.svelte';
+	import Addperson from './Newperson.svelte';
 	let people=[
 		{name:'sahil',code:100,id:1},
 		{name:'tushar',code:101,id:2},
@@ -18,15 +19,7 @@
 <!-- You can add more contents in modal component in opening and closing tag -->
 <!-- slots are used for this. Named slots are used for reference example div tag has named slot -->
 <Modal {show} on:click={handleshow}>
-<div>
-	<form>
-	<input type="text" placeholder='name'>
-</form>
-</div>
-<div slot='firstsl'>
-	<p>New Slot</p>
-</div>
-
+<Addperson/>
 
 </Modal> 
 <main>
@@ -60,12 +53,12 @@
 		margin: 0 auto;
 	}
 
-	h1 {
+	/* h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
-	}
+	} */
 
 	@media (min-width: 640px) {
 		main {
