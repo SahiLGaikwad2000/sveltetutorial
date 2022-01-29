@@ -14,17 +14,24 @@
 	const handleshow=()=>{
 		show=!show;
 	}
+	const addPerson=(e)=>{
+		const person=e.detail
+		console.log(person)
+		people=[person,...people]
+		show=false;
+;
+	}
 </script>
 <!-- here message is string prop . props can be of various types like object,int -->
 <!-- You can add more contents in modal component in opening and closing tag -->
 <!-- slots are used for this. Named slots are used for reference example div tag has named slot -->
 <Modal {show} on:click={handleshow}>
-<Addperson/>
+<Addperson on:addPerson={addPerson}/>
 
 </Modal> 
 <main>
 	<div>
-		{#each people as person (person.id)}
+		{#each people as person}
 		<div>
 			{#if person.code===102}	
 			<p><strong>James Bond</strong></p>
@@ -33,14 +40,15 @@
 		<button on:click={()=>{handleClick(person.id)}}>Delete</button> 
 		<!-- used inline function to pass reference of function handleclick so that it gets called only when button is clicked -->
 	</div>
-	<div>
-		<!-- |once is event modifier -->
-		<button on:click|once={handleshow}>Show modal</button>
-	</div>
+	
 		{:else}
 		<h4>There are no people to show.</h4>	
 		
 		{/each}
+		<div>
+			<!-- |once is event modifier -->
+			<button on:click={handleshow}>Show modal</button>
+		</div>
 	</div>
 </main>
 

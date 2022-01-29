@@ -1,11 +1,20 @@
 <script>
-
+    
+import { createEventDispatcher } from 'svelte';
+let dispatch=createEventDispatcher();
 let name;
 let age;
 let beltcolour;
 let skills=[];
+let code=105;
 const handlesubmit=()=>{
-    console.log(name,age,skills,beltcolour)
+    // console.log(name,age,skills,beltcolour)
+    let person={
+        name,
+        age,beltcolour,code
+    }
+    dispatch('addPerson',person)
+    code=code+1
 }
 </script>
 <!-- preventdefault is event modifer so that it prevents refreshing page after submitting -->
